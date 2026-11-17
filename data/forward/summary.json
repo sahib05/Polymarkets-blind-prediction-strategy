@@ -1,0 +1,168 @@
+{
+  "generated_at": "2026-10-26T13:09:05.636457+00:00",
+  "mode": "shadow",
+  "model": "gpt-5.6-luna",
+  "min_volume": 20000.0,
+  "universe": {
+    "scan_min_volume_to_date": 20000.0,
+    "primary_min_final_volume": 500000.0,
+    "secondary_min_volume_at_decision": 500000.0,
+    "min_age_days": 3.0,
+    "max_open_per_cluster": 2,
+    "evidence_ok_min_days": 8
+  },
+  "schedule": {
+    "cron_utc": "17 */6 * * *",
+    "window_hours": [
+      12.0,
+      27.0
+    ],
+    "nominal_horizon_hours": 24
+  },
+  "analysis_plan": {
+    "target_n_trades_primary": 200,
+    "look": "one confirmatory look when the primary population reaches 200 settled trades",
+    "interim": true
+  },
+  "last_decision_ts": "2026-10-26T13:08:57.811921+00:00",
+  "counts": {
+    "no_trade": 425,
+    "settled": 148,
+    "open": 14
+  },
+  "n_decisions": 587,
+  "shadow": {
+    "primary": {
+      "population": "primary",
+      "n_settled": 53,
+      "n_trades": 53,
+      "total_pnl": -1736.5796698340375,
+      "roi": -0.3276565414781203,
+      "win_rate": 0.22641509433962265,
+      "roi_ci_low": -0.6054886418556008,
+      "roi_ci_high": -0.025653174931870252,
+      "brier_blend_traded": 0.27196603773584904,
+      "brier_market_traded": 0.19675688679245282,
+      "max_drawdown": 2513.4915201628396,
+      "n_clusters": 49
+    },
+    "secondary_at_decision": {
+      "population": "secondary_at_decision",
+      "n_settled": 12,
+      "n_trades": 12,
+      "total_pnl": 66.93129215494196,
+      "roi": 0.055776076795784967,
+      "win_rate": 0.5,
+      "roi_ci_low": -0.45461729889695995,
+      "roi_ci_high": 0.5278916892099049,
+      "brier_blend_traded": 0.27133333333333337,
+      "brier_market_traded": 0.24177529166666667,
+      "max_drawdown": 400.0,
+      "n_clusters": 11
+    },
+    "all": {
+      "population": "all",
+      "n_settled": 148,
+      "n_trades": 148,
+      "total_pnl": -3048.999421749679,
+      "roi": -0.2060134744425459,
+      "win_rate": 0.2972972972972973,
+      "roi_ci_low": -0.4121389681334056,
+      "roi_ci_high": 0.0014660980208651636,
+      "brier_blend_traded": 0.2300891891891892,
+      "brier_market_traded": 0.17193200337837838,
+      "max_drawdown": 3971.1222938719693,
+      "n_clusters": 126
+    },
+    "calibration": {
+      "n_resolved": 542,
+      "brier_model": 0.2539826568265683,
+      "brier_market": 0.10048587730627306,
+      "n_in_band": 345,
+      "brier_model_in_band": 0.2617791304347826,
+      "brier_market_in_band": 0.14663425072463768
+    },
+    "n_open": 14
+  },
+  "official": {
+    "primary": {
+      "population": "primary",
+      "n_settled": 0,
+      "n_trades": 0
+    },
+    "secondary_at_decision": {
+      "population": "secondary_at_decision",
+      "n_settled": 0,
+      "n_trades": 0
+    },
+    "all": {
+      "population": "all",
+      "n_settled": 0,
+      "n_trades": 0
+    },
+    "calibration": {
+      "n_resolved": 0
+    },
+    "n_open": 0
+  },
+  "scan_health": {
+    "last_scan_ts": "2026-10-26T13:08:57.811921+00:00",
+    "hours_since_last_scan": 0.0,
+    "last_status": "ok",
+    "last_exit_code": 0,
+    "runs_last_7d": 28,
+    "failed_runs_last_7d": 0,
+    "last_run": {
+      "ts": "2026-10-26T13:08:57.811921+00:00",
+      "mode": "shadow",
+      "exit_code": 0,
+      "status": "ok",
+      "window_lo": 12.0,
+      "window_hi": 27.0,
+      "scan_min_volume": 20000.0,
+      "n_raw": 145,
+      "gamma_pages": 3,
+      "gamma_truncated": false,
+      "n_candidates": 5,
+      "n_illiquid": 1,
+      "n_book_failed": 0,
+      "n_market_failed": 0,
+      "n_forecast_attempted": 4,
+      "n_forecast_ok": 4,
+      "n_forecast_failed": 0,
+      "n_open": 0,
+      "n_no_trade": 4,
+      "wiki_days_ok": 10,
+      "wiki_days_cached": 10,
+      "wiki_days_failed": 0,
+      "coverage_gap_hours": 0.0,
+      "duration_s": 6.6,
+      "error": null
+    },
+    "evidence": {
+      "last_wiki_days_ok": 10,
+      "decisions_last_14d": 278,
+      "decisions_with_evidence_last_14d": 278
+    }
+  },
+  "health": "ok",
+  "baseline": {
+    "source": "data/backtest/evaluation.gpt-5.6-luna.primary.json",
+    "test_roi": 0.3178,
+    "test_ci_90": [
+      0.0692,
+      0.5865
+    ],
+    "n_trades": 124,
+    "note": "gpt-5.6-luna, frozen claude params, final volume >= $500k, event-clustered CI: the like-for-like reference for the primary population",
+    "claude_reference": {
+      "source": "data/baselines/claude-fable-5-2026-06-10",
+      "test_roi": 0.3052,
+      "test_ci_90": [
+        0.0514,
+        0.5629
+      ]
+    }
+  },
+  "shadow_note": "Shadow rows 2026-08-12..2026-09-24 were forecast with the Wikipedia channel dead (n_wiki_events == 0 on every row) under a $500k volume-to-date floor; they are reported as shadow only and are excluded from the primary population."
+}
